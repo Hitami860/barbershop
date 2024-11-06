@@ -8,13 +8,13 @@
 		<section class="bg-gray-900 flex flex-row gap-[10%] text-center justify-center">
 			<img src="{{asset('images/logobarber.png')}}" class="h-16" alt="logo barber shop">
 			<div class="flex flex-row items-center gap-1">
-				<img src="{{asset('images/localisation.png')}}" class="h-8" alt="localisation logo"><p class="font-semibold text-white text-xl pt-2 pb-3">40 Rue du Barber, 86000 Poitiers</p>
+				<img src="{{asset('images/localisation.png')}}" class="h-8" alt="localisation logo"><p class="font-semibold text-white  pt-2 pb-3">40 Rue du Barber, 86000 Poitiers</p>
 			</div>
 			<div class="flex flex-row items-center gap-1">
-				<img src="{{asset('images/mail.png')}}" class="h-8" alt="localisation logo"><p class="font-semibold text-white text-xl pt-2 pb-3">BarberShop@gmail.com</p>
+				<img src="{{asset('images/mail.png')}}" class="h-8" alt="localisation logo"><p class="font-semibold text-white pt-2 pb-3">BarberShop@gmail.com</p>
 			</div>
 			<div class="flex flex-row items-center gap-1">
-				<img src="{{asset('images/mobilephone.png')}}" class="h-8" alt="localisation logo"><p class="font-semibold text-white text-xl pt-2 pb-3">06 69 85 41 52</p>
+				<img src="{{asset('images/mobilephone.png')}}" class="h-8" alt="localisation logo"><p class="font-semibold text-white pt-2 pb-3">06 69 85 41 52</p>
 			</div>
 		</section>
 		<header class="flex flex-col bg-contain bg-no-repeat md:bg-no-repeat bg-cover py-96 gap-[60px] border-2" style="background-image:url('{{asset('images/barberbackground.png')}}')">
@@ -79,9 +79,9 @@
 		<section class="pb-[5%]">
 			<h2 class="text-3xl text-center pt-24 font-semibold text-black pb-12">Catégories</h2>
 
-			<div class="flex flex-wrap container mx-auto">
+			<div class="flex flex-wrap container mx-auto gap-2">
 
-				<div class="max-w-sm rounded overflow-hidden shadow-lg">
+				<div class="max-w-sm rounded overflow-hidden shadow-lg hover:border-[#9f7150]  border-2 border-gray-200">
 					<img class="w-full" src="/img/card-top.jpg" alt="Sunset in the mountains">
 					<div class="px-6 py-4">
 						<div class="font-bold text-xl mb-2">The Coldest Sunset</div>
@@ -96,7 +96,7 @@
 					</div>
 				</div>
 
-				<div class="max-w-sm rounded overflow-hidden shadow-lg">
+				<div class="max-w-sm rounded overflow-hidden shadow-lg hover:border-[#9f7150]  border-2 border-gray-200">
 					<img class="w-full" src="/img/card-top.jpg" alt="Sunset in the mountains">
 					<div class="px-6 py-4">
 						<div class="font-bold text-xl mb-2">The Coldest Sunset</div>
@@ -111,7 +111,7 @@
 					</div>
 				</div>
 
-				<div class="max-w-sm rounded overflow-hidden shadow-lg">
+				<div class="max-w-sm rounded overflow-hidden shadow-lg hover:border-[#9f7150]  border-2 border-gray-200">
 					<img class="w-full" src="/img/card-top.jpg" alt="Sunset in the mountains">
 					<div class="px-6 py-4">
 						<div class="font-bold text-xl mb-2">The Coldest Sunset</div>
@@ -126,7 +126,7 @@
 					</div>
 				</div>
 
-				<div class="max-w-sm rounded overflow-hidden shadow-lg">
+				<div class="max-w-sm rounded overflow-hidden shadow-lg hover:border-[#9f7150]  border-2 border-gray-200">
 					<img class="w-full" src="/img/card-top.jpg" alt="Sunset in the mountains">
 					<div class="px-6 py-4">
 						<div class="font-bold text-xl mb-2">The Coldest Sunset</div>
@@ -146,41 +146,95 @@
 		</section>
 
 
-		<section class="flex flex-col bg-contain bg-no-repeat md:bg-no-repeat bg-cover py-96 gap-[60px] border-2" style="background-image:url('{{asset('images/logoavis.avif')}}')"></section>
+		<section class="flex flex-col bg-cover bg-no-repeat md:bg-no-repeat bg-contain pb-[25%] gap-[60px] border-2 opacity-[90%]" style=" background-image:url('{{asset('images/aviis.jpg')}}')">
+
+			<div class="flex justify-center pt-[5%]">
+				<h2 class="text-5xl text-[#9f7150] font-semibold border border-2 border-[#9f7150] text-center ">Les avis</h2>
+
+			</div>
+			<h2 class="text-5xl text-white text-center">Ce que la communauté pense de nous</h2>
+
+			<p class="text-2xl text-white italic text-center">" Incroyable salon, le personnel est à l'écoute et les professionnels sont trop fort, je suis devenu bg merci ! "</p>
+			<div class="h-8 flex flex-row justify-center">
+			<img src="{{asset('images/etoile.png')}}" alt="">
+			<img src="{{asset('images/etoile.png')}}" alt="">
+			<img src="{{asset('images/etoile.png')}}" alt="">
+			<img src="{{asset('images/etoile.png')}}" alt="">
+			<img src="{{asset('images/etoile.png')}}" alt="">
+			</div>
+
+			<h2 class="text-white text-2xl font-semibold text-center">Gaetan Dupont</h2>
+			<img src="{{asset('images/haircut.webp')}}" class="w-20 rounded-xl "  alt="">
+
+
+
+		</section>
 
 		<section class="bg-gray-900 pb-[5%] pt-[2%]">
 
-        <div class="flex flex-row gap-[10%] ">
+			<div class="flex flex-row gap-[10%] ">
 
-			<div class="text-2xl text-white pl-[15%]">
+				<div class="text-2xl text-white pl-[15%]">
 
-				<h2 class="text-3xl pb-[5%] font-semibold">Bogoss Barber</h2>
-				<div class="flex flex-row items-center gap-1">
-					<img src="{{asset('images/positionlogo.png')}}" class="h-8 pt-[3%]" alt="localisation logo"><h1>40 Rue du Barber, 86000 Poitiers</h1>
-				</div>
-				<div class="flex flex-row items-center gap-1">
-					<img src="{{asset('images/iphone.png')}}" class="h-8 pt-[3%]" alt="localisation logo"><h1>06 69 85 41 52</h1>
-				</div>
-				<div class="flex flex-row items-center gap-1">
-					<img src="{{asset('images/mailogo.png')}}" class="h-8 pt-[3%]" alt="localisation logo"><h1>BarberShop@gmail.com</h1>
+					<h2 class="text-3xl pb-[5%] font-semibold">Bogoss Barber</h2>
+					<div class="flex flex-row items-center gap-1">
+						<img src="{{asset('images/positionlogo.png')}}" class="h-8 pt-[3%]" alt="localisation logo"><h1>40 Rue du Barber, 86000 Poitiers</h1>
+					</div>
+					<div class="flex flex-row items-center gap-1">
+						<img src="{{asset('images/iphone.png')}}" class="h-8 pt-[3%]" alt="localisation logo"><h1>06 69 85 41 52</h1>
+					</div>
+					<div class="flex flex-row items-center gap-1">
+						<img src="{{asset('images/mailogo.png')}}" class="h-8 pt-[3%]" alt="localisation logo"><h1>BarberShop@gmail.com</h1>
+					</div>
+
+
 				</div>
 
+				<div class="text-2xl text-white">
+
+					<h2 class="text-3xl pb-[5%] font-semibold border border-2 boder-white text-center">Nos horaires</h2>
+
+					<p>Lundi - Vendredi : 9h00 - 17h00
+					</p>
+					<p>Samedi : 10h00 - 13h00</p>
+					<p class="text-red-500">Dimanche : fermé</p>
+
+				</div>
+
+				<div class="text-2xl text-white">
+
+					<h2 class="text-3xl pb-[5%] font-semibold border border-2 boder-white text-center px-2">Le Salon</h2>
+					<img src="{{asset('images/salonimage.jpeg')}}" class=" h-[250px] pt-[5%] w-full " alt="image barber">
+
+				</div>
 
 			</div>
 
-			<div class="text-2xl text-white">
-
-            <h2 class="text-3xl pb-[5%] font-semibold border border-2 boder-white text-center">Nos horaires</h2>
-            
-            <p>Lundi - Vendredi : 9h00 - 17h00 </p>
-            <p>Samedi : 10h00 - 13h00</p>
-            <p class="text-red-500">Dimanche : fermé</p>
-            
-            </div>
-
-            </div>
-
 		</section>
+
+
+
+<footer class="bg-[#9f7150] rounded-lg shadow m-4 dark:bg-gray-800">
+    <div class="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
+      <span class="text-sm text-white sm:text-center dark:text-gray-400">© 2023 <a href="https://flowbite.com/" class="hover:underline">Flowbite™</a>. All Rights Reserved.
+    </span>
+    <ul class="flex flex-wrap items-center mt-3 text-sm font-medium text-white dark:text-gray-400 sm:mt-0">
+        <li>
+            <a href="#" class="hover:underline me-4 md:me-6">About</a>
+        </li>
+        <li>
+            <a href="#" class="hover:underline me-4 md:me-6">Privacy Policy</a>
+        </li>
+        <li>
+            <a href="#" class="hover:underline me-4 md:me-6">Licensing</a>
+        </li>
+        <li>
+            <a href="#" class="hover:underline">Contact</a>
+        </li>
+    </ul>
+    </div>
+</footer>
+
 
 	</body>
 {% endblock %}
