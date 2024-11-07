@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Barber Shop - Accueil
+{% block title %}Bogoss Barber - Accueil
 {% endblock %}
 
 {% block body %}
@@ -21,16 +21,16 @@
 
 			<div class="text-white font-semibold gap-[3%] text-2xl pb flex justify-center">
 
-				<a id="hover" href="">Accueil</a>
+				<a id="hover" href="{{path('app_main')}}">Accueil</a>
 				<a id="hover" href="">Tous nos produits</a>
 				{% if app.user %}
 					{% if "ROLE_Admin" in app.user.roles %}
 						<a id="hover" href="">Admin</a>
 					{% endif %}
 					<a id="hover" href="">Profil</a>
-					<a id="hover" href="">Deconnexion</a>
+					<a id="hover" href="{{path('app_logout')}}">Deconnexion</a>
 				{% else %}
-					<a id="hover" href="">Connexion</a>
+					<a id="hover" href="{{path('app_login')}}">Connexion</a>
 				{% endif %}
 				<a id="hover" href="">Panier</a>
 				<a id="hover" href="}">Contact</a>
@@ -164,8 +164,9 @@
 			</div>
 
 			<h2 class="text-white text-2xl font-semibold text-center">Gaetan Dupont</h2>
-			<img src="{{asset('images/haircut.webp')}}" class="w-20 rounded-xl "  alt="">
-
+			<div class="pl-[49%] ">
+			<img src="{{asset('images/haircut.webp')}}" class="w-20 rounded-xl border border-white border-2"  alt="">
+			</div>
 
 
 		</section>

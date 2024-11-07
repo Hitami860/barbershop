@@ -1,13 +1,14 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello SecurityController!
+{% block title %}Bogoss Barber - Connexion
 {% endblock %}
 
 {% block body %}
 	<body>
-<div class=" mb-[23%] px-[3%] container mx-auto">
-<div class=" h-[800px] bg-no-repeat container mx-auto pl-[15%]" style="background-image:url('{{asset('images/communaute.jpg')}}')"></div>
-		
+		<div class=" px-[3%] container mx-auto pt-4 ">
+			<div class="pl-[20%]">
+				<div class=" h-[500px] bg-no-repeat container mx-auto pl-[15%]" style="background-image:url('{{asset('images/communaute.jpg')}}')"></div>
+			</div>
 			<h2 class="text-black text-2xl font-semibold uppercase text-center">Connexion</h2>
 			<form action="{{ path('app_login') }}" method="post" class="mt-5 flex flex-col">
 				<input type="text" name="_username" value="{{lastpseudo}}" placeholder="Votre email" class="mb-5">
@@ -16,13 +17,13 @@
 					<button type="submit" class="w-[30%] text-white bg-[#9f7150] rounded-xl">Connexion</button>
 				</div>
 			</form>
-			<a href="">
+			<a href="{{path('app_register')}}">
 				<p class="text-black pt-7 text-xl text-center">Vous n'avez pas de compte ?
 					<span style="color:red;">Inscrivez-vous</span>
 				</p>
 			</a>
 			<a href="{{path('app_main')}}">
-				<p class="text-white pt-7 text-xl text-center">Retour sur la page d'accueil</p>
+				<p class="text-black pt-7 text-xl text-center">Retour sur la page d'accueil</p>
 			</a>
 		</div>
 
