@@ -34,6 +34,10 @@ class Categories
     #[ORM\OneToMany(targetEntity: Subcategories::class, mappedBy: 'categories')]
     private Collection $subcategories;
 
+    public function __tostring() {
+        return $this->nom;
+    }
+
     public function __construct()
     {
         $this->produits = new ArrayCollection();

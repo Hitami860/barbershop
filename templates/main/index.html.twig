@@ -63,86 +63,25 @@
 			</div>
 		</section>
 
-		<section class="bg-gray-900 flex flex-row text-center gap-[4%] flex justify-center">
-			<p class="hover:underline text-3xl text-white font-semibold pt-[5%] pb-[5%]">
-				<span class="text-[#9f7150] text-4xl font-bold ">5+</span><br>Professionnels<br>diplômés</p>
-			<p class="text-3xl text-white font-semibold pt-[5%] pb-[5%] hover:underline">
-				<span class="text-[#9f7150] text-4xl font-bold">150+</span><br>Clients<br>satisfaits</p>
-			<p class="text-3xl text-white font-semibold pt-[5%] pb-[5%] hover:underline">
-				<span class="text-[#9f7150] text-4xl font-bold">10+</span><br>D'Années<br>à votre service</p>
-			<p class="text-3xl text-white font-semibold pt-[5%] pb-[5%] hover:underline">
-				<span class="text-[#9f7150] text-4xl font-bold">3</span><br>Salons<br>situés en France</p>
-			<p class="text-3xl text-white font-semibold pt-[5%] pb-[5%] hover:underline">
-				<span class="text-[#9f7150] text-4xl font-bold">5</span><br>Certifications<br>obtenus</p>
-		</section>
 
 		<section class="pb-[5%]">
 			<h2 class="text-3xl text-center pt-24 font-semibold text-black pb-12">Catégories</h2>
 
-			<div class="flex flex-wrap container mx-auto gap-2">
+<div class="flex flex-row w-[35%] container mx-auto">
+			{% for category in categories %}
+				<div class="flex flex-wrap container mx-auto gap-2">
 
-				<div class="max-w-sm rounded overflow-hidden shadow-lg hover:border-[#9f7150]  border-2 border-gray-200">
-					<img class="w-full" src="/img/card-top.jpg" alt="Sunset in the mountains">
-					<div class="px-6 py-4">
-						<div class="font-bold text-xl mb-2">The Coldest Sunset</div>
-						<p class="text-gray-700 text-base">
-							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.
-						</p>
-					</div>
-					<div class="px-6 pt-4 pb-2">
-						<span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#photography</span>
-						<span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#travel</span>
-						<span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#winter</span>
+					<div class="max-w-sm rounded overflow-hidden shadow-lg hover:border-[#9f7150]  border-2 border-gray-200">
+						<a href="{{path('app_categorie', {id: category.id})}}">
+							<img class="w-full" src="{{asset(category.image)}}" alt="categories images">
+						</a>
+						<div class="px-6 py-4">
+							<div class="font-bold text-xl mb-2">{{category.nom}}</div>
+						</div>
 					</div>
 				</div>
-
-				<div class="max-w-sm rounded overflow-hidden shadow-lg hover:border-[#9f7150]  border-2 border-gray-200">
-					<img class="w-full" src="/img/card-top.jpg" alt="Sunset in the mountains">
-					<div class="px-6 py-4">
-						<div class="font-bold text-xl mb-2">The Coldest Sunset</div>
-						<p class="text-gray-700 text-base">
-							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.
-						</p>
-					</div>
-					<div class="px-6 pt-4 pb-2">
-						<span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#photography</span>
-						<span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#travel</span>
-						<span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#winter</span>
-					</div>
-				</div>
-
-				<div class="max-w-sm rounded overflow-hidden shadow-lg hover:border-[#9f7150]  border-2 border-gray-200">
-					<img class="w-full" src="/img/card-top.jpg" alt="Sunset in the mountains">
-					<div class="px-6 py-4">
-						<div class="font-bold text-xl mb-2">The Coldest Sunset</div>
-						<p class="text-gray-700 text-base">
-							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.
-						</p>
-					</div>
-					<div class="px-6 pt-4 pb-2">
-						<span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#photography</span>
-						<span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#travel</span>
-						<span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#winter</span>
-					</div>
-				</div>
-
-				<div class="max-w-sm rounded overflow-hidden shadow-lg hover:border-[#9f7150]  border-2 border-gray-200">
-					<img class="w-full" src="/img/card-top.jpg" alt="Sunset in the mountains">
-					<div class="px-6 py-4">
-						<div class="font-bold text-xl mb-2">The Coldest Sunset</div>
-						<p class="text-gray-700 text-base">
-							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.
-						</p>
-					</div>
-					<div class="px-6 pt-4 pb-2">
-						<span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#photography</span>
-						<span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#travel</span>
-						<span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#winter</span>
-					</div>
-				</div>
-
-			</div>
-
+			{% endfor %}
+</div>
 		</section>
 
 
@@ -156,16 +95,16 @@
 
 			<p class="text-2xl text-white italic text-center">" Incroyable salon, le personnel est à l'écoute et les professionnels sont trop fort, je suis devenu bg merci ! "</p>
 			<div class="h-8 flex flex-row justify-center">
-			<img src="{{asset('images/etoile.png')}}" alt="">
-			<img src="{{asset('images/etoile.png')}}" alt="">
-			<img src="{{asset('images/etoile.png')}}" alt="">
-			<img src="{{asset('images/etoile.png')}}" alt="">
-			<img src="{{asset('images/etoile.png')}}" alt="">
+				<img src="{{asset('images/etoile.png')}}" alt="">
+				<img src="{{asset('images/etoile.png')}}" alt="">
+				<img src="{{asset('images/etoile.png')}}" alt="">
+				<img src="{{asset('images/etoile.png')}}" alt="">
+				<img src="{{asset('images/etoile.png')}}" alt="">
 			</div>
 
 			<h2 class="text-white text-2xl font-semibold text-center">Gaetan Dupont</h2>
 			<div class="pl-[49%] ">
-			<img src="{{asset('images/haircut.webp')}}" class="w-20 rounded-xl border border-white border-2"  alt="">
+				<img src="{{asset('images/haircut.webp')}}" class="w-20 rounded-xl border border-white border-2" alt="">
 			</div>
 
 
@@ -214,27 +153,27 @@
 		</section>
 
 
-
-<footer class="bg-[#9f7150] rounded-lg shadow m-4 dark:bg-gray-800">
-    <div class="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
-      <span class="text-sm text-white sm:text-center dark:text-gray-400">© 2023 <a href="https://flowbite.com/" class="hover:underline">Flowbite™</a>. All Rights Reserved.
-    </span>
-    <ul class="flex flex-wrap items-center mt-3 text-sm font-medium text-white dark:text-gray-400 sm:mt-0">
-        <li>
-            <a href="#" class="hover:underline me-4 md:me-6">About</a>
-        </li>
-        <li>
-            <a href="#" class="hover:underline me-4 md:me-6">Privacy Policy</a>
-        </li>
-        <li>
-            <a href="#" class="hover:underline me-4 md:me-6">Licensing</a>
-        </li>
-        <li>
-            <a href="#" class="hover:underline">Contact</a>
-        </li>
-    </ul>
-    </div>
-</footer>
+		<footer class="bg-[#9f7150] rounded-lg shadow m-4 dark:bg-gray-800">
+			<div class="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
+				<span class="text-sm text-white sm:text-center dark:text-gray-400">© 2023
+					<a href="https://flowbite.com/" class="hover:underline">Flowbite™</a>. All Rights Reserved.
+				</span>
+				<ul class="flex flex-wrap items-center mt-3 text-sm font-medium text-white dark:text-gray-400 sm:mt-0">
+					<li>
+						<a href="#" class="hover:underline me-4 md:me-6">About</a>
+					</li>
+					<li>
+						<a href="#" class="hover:underline me-4 md:me-6">Privacy Policy</a>
+					</li>
+					<li>
+						<a href="#" class="hover:underline me-4 md:me-6">Licensing</a>
+					</li>
+					<li>
+						<a href="#" class="hover:underline">Contact</a>
+					</li>
+				</ul>
+			</div>
+		</footer>
 
 
 	</body>
