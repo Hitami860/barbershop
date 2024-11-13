@@ -1,12 +1,13 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Bogoss Barber - Catégories{% endblock %}
+{% block title %}Bogoss Barber - Catégories
+{% endblock %}
 
 {% block body %}
 
-<body>
-    
-<img src="{{asset('images/logobarber.png')}}" class="h-[100px] w-[100px] absolute ml-[20%]" alt="Logo bike life"/>
+	<body>
+
+		<img src="{{asset('images/logobarber.png')}}" class="h-[100px] w-[100px] absolute ml-[20%]" alt="Logo bike life"/>
 		<header class="flex flex-col bg-contain bg-no-repeat md:bg-no-repeat bg-cover py-96 container mx-auto gap-[60px] border-2" style="background-image:url('{{asset(categorie.image)}}')">
 
 			<div class="text-white font-semibold gap-[3%] text-2xl pb flex justify-center">
@@ -14,9 +15,9 @@
 				<a id="hover" href="{{path('app_main')}}">Accueil</a>
 				<a id="hover" href="">Tous nos produits</a>
 				{% if app.user %}
-				<a id="hover" href="{{path('app_logout')}}">Deconnexion</a>
+					<a id="hover" href="{{path('app_logout')}}">Deconnexion</a>
 				{% else %}
-				<a id="hover" href="{{path('app_login')}}">Connexion</a>
+					<a id="hover" href="{{path('app_login')}}">Connexion</a>
 				{% endif %}
 				<a id="hover" href="">Contact</a>
 
@@ -25,24 +26,24 @@
 				<h1 class="text-white text-5xl text-center font-semibold ">{{categorie.nom}}</h1>
 			</div>
 		</header>
-        <section class="pb-[5%] pt-[2%]">
-				{% for subcategory in subcategories %}
-					<div class="container mx-auto gap-2">
+		<div class="flex flex-row w-[50%] container mx-auto gap-2 pt-[3%]">
+			{% for subcategory in subcategories %}
+				<div class="flex flex-wrap container mx-auto gap-2">
 
-						<div class="max-w-sm rounded overflow-hidden shadow-lg hover:border-[#9f7150]  border-2 border-gray-200">
-						<a href="{{path('app_subcategories', {id: subcategory.id})}}">
+					<div class="max-w-sm rounded overflow-hidden shadow-lg hover:border-[#9f7150]  border-2 border-gray-200">
+						<a href="{{path('app_categorie', {id: subcategory.id})}}">
 							<img class="w-full" src="{{asset(subcategory.image)}}" alt="categories images">
-							</a>
-							<div class="px-6 py-4">
-								<div class="font-bold text-xl mb-2">{{subcategory.nom}}</div>
-							</div>
+						</a>
+						<div class="px-6 py-4">
+							<div class="font-bold text-xl mb-2">{{subcategory.nom}}</div>
 						</div>
-					{% endfor %}
-				
-			</section>
-        <section class="flex flex-wrap gap-3 container mx-auto pt-[3%]">
-{% for produits in produit %}
-				<div class="w-1/4 bg-gray-800 border border-[#9f7150] rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+		<section class="flex flex-wrap gap-3 container mx-auto pt-[3%]">
+			{% for produits in produit %}
+				<div class="w-1/4 bg-gray-800 border border-2 border-gray-300 hover:border-[#9f7150] rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
 					<a href="{{path('app_produit', {id: produits.id})}}">
 						<div class="zoom-image"><img class="w-full h-[200px]" src="{{asset(produits.image)}}" alt=""/></div>
 					</a>
@@ -52,20 +53,41 @@
 						</a>
 						<p class="mb-3 font-normal text-gray-400 dark:text-gray-400">{{produits.description}}</p>
 						<div class="flex flex-row justify-between">
-						<a href="{{path('app_produit', {id: produits.id})}}" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-[#9f7150] rounded-lg hover:bg-[#0B9C9F] focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-							{{produits.prix}}€
-							<svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 14 10">
-								<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
-							</svg>
-						</a>
-						<img src="{{asset('images/iconlike.png')}}" alt="favoris">
+							<a href="{{path('app_produit', {id: produits.id})}}" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-[#9f7150] rounded-lg hover:bg-[#0B9C9F] focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+								{{produits.prix}}€
+								<svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 14 10">
+									<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+								</svg>
+							</a>
+							<img src="{{asset('images/iconlike.png')}}" alt="favoris">
 						</div>
 					</div>
 				</div>
 			{% endfor %}
-            </section>
+		</section>
 
-</body>
+		<footer class="bg-[#9f7150] rounded-lg shadow m-4 dark:bg-gray-800">
+			<div class="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
+				<span class="text-sm text-white sm:text-center dark:text-gray-400">© 2023
+					<a href="https://flowbite.com/" class="hover:underline">Flowbite™</a>. All Rights Reserved.
+				</span>
+				<ul class="flex flex-wrap items-center mt-3 text-sm font-medium text-white dark:text-gray-400 sm:mt-0">
+					<li>
+						<a href="#" class="hover:underline me-4 md:me-6">About</a>
+					</li>
+					<li>
+						<a href="#" class="hover:underline me-4 md:me-6">Privacy Policy</a>
+					</li>
+					<li>
+						<a href="#" class="hover:underline me-4 md:me-6">Licensing</a>
+					</li>
+					<li>
+						<a href="#" class="hover:underline">Contact</a>
+					</li>
+				</ul>
+			</div>
+		</footer>
+	</body>
 
 
 {% endblock %}
