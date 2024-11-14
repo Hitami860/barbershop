@@ -31,7 +31,7 @@ class ProduitsCrudController extends AbstractCrudController
             AssociationField::new('Subcategories')
             ->setLabel('subcategories')
             ->setFormTypeOptions([
-                'by_reference' => false,
+                'by_reference' => true,
                 'multiple' => false,  
             ]),
             AssociationField::new('categories')

@@ -25,7 +25,7 @@ class SubcategoriesCrudController extends AbstractCrudController
             AssociationField::new('categories')
             ->setLabel('Catégorie')
             ->setFormTypeOptions([
-                'by_reference' => false,
+                'by_reference' => true,
                 'multiple' => false,  
             ])
             ->setRequired(true)
