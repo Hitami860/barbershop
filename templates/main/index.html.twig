@@ -64,7 +64,7 @@
 		</section>
 
 
-		<section class="pb-[5%]">
+		<section class="pb-[5%] border-t-2  ">
 			<h2 class="text-3xl text-center pt-24 font-semibold text-black pb-12">Catégories</h2>
 
 <div class="flex flex-row w-[35%] container mx-auto">
@@ -76,19 +76,32 @@
 							<img class="w-full" src="{{asset(category.image)}}" alt="categories images">
 						</a>
 						<div class="px-6 py-4">
-							<div class="font-bold text-xl mb-2">{{category.nom}}</div>
+							<div class="font-bold text-xl mb-2 text-orange-300">{{category.nom}}</div>
 						</div>
 					</div>
 				</div>
 			{% endfor %}
+			
 </div>
+
+<div class="flex flex-wrap container mx-auto gap-2 justify-center pt-8">
+
+					<div class="max-w-sm rounded overflow-hidden shadow-lg hover:border-[#9f7150]  border-2 border-gray-200">
+						<a href="{{path('app_reservation')}}">
+							<img class="w-full" src="{{asset("images/reservation2.webp")}}" alt="categories images">
+						</a>
+						<div class="px-6 py-4">
+							<div class="font-bold text-xl mb-2 text-orange-300">Prendre Rendez-vous</div>
+						</div>
+					</div>
+				</div>
 		</section>
 
 
 		<section class="flex flex-col bg-cover bg-no-repeat md:bg-no-repeat bg-contain pb-[25%] gap-[60px] border-2 opacity-[90%]" style=" background-image:url('{{asset('images/aviis.jpg')}}')">
 
 			<div class="flex justify-center pt-[5%]">
-				<h2 class="text-5xl text-[#9f7150] font-semibold border border-2 border-[#9f7150] text-center ">Les avis</h2>
+				<h2 class="text-5xl text-[#9f7150] font-semibold border border-2 border-[#9f7150] text-center px-2 py-2">Les avis</h2>
 
 			</div>
 			<h2 class="text-5xl text-white text-center">Ce que la communauté pense de nous</h2>
@@ -132,7 +145,7 @@
 
 				<div class="text-2xl text-white">
 
-					<h2 class="text-3xl pb-[5%] font-semibold border border-2 boder-white text-center">Nos horaires</h2>
+					<h2 class="text-3xl pb-[5%] font-semibold border border-2 boder-white text-center py-2">Nos horaires</h2>
 
 					<p>Lundi - Vendredi : 9h00 - 17h00
 					</p>
@@ -143,7 +156,7 @@
 
 				<div class="text-2xl text-white">
 
-					<h2 class="text-3xl pb-[5%] font-semibold border border-2 boder-white text-center px-2">Le Salon</h2>
+					<h2 class="text-3xl pb-[5%] font-semibold border border-2 boder-white text-center px-2 py-2">Le Salon</h2>
 					<img src="{{asset('images/salonimage.jpeg')}}" class=" h-[250px] pt-[5%] w-full " alt="image barber">
 
 				</div>
@@ -155,8 +168,8 @@
 
 		<footer class="bg-[#9f7150] rounded-lg shadow m-4 dark:bg-gray-800">
 			<div class="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
-				<span class="text-sm text-white sm:text-center dark:text-gray-400">© 2023
-					<a href="https://flowbite.com/" class="hover:underline">Flowbite™</a>. All Rights Reserved.
+				<span class="text-sm text-white sm:text-center dark:text-gray-400">© 2024
+					<a href="#" class="hover:underline">Bogoss Barber™</a>. All Rights Reserved.
 				</span>
 				<ul class="flex flex-wrap items-center mt-3 text-sm font-medium text-white dark:text-gray-400 sm:mt-0">
 					<li>

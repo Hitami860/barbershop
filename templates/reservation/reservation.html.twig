@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ReservationController!
+{% endblock %}
+
+{% block body %}
+
+	<body>
+
+		<div class="text-white font-semibold flex flex-wrap gap-[3%] text-2xl sm:text-xl py-7 pb flex justify-center border bg-black pt-7 pb-7">
+
+			<a id="hover" href="{{path('app_main')}}">Accueil</a>
+			<a id="hover" href="{{path('app_produits')}}">Tous nos produits</a>
+			{% if app.user %}
+				{% if "ROLE_Admin" in app.user.roles %}
+					<a id="hover" href="{{path('admin')}}">Admin</a>
+				{% endif %}
+				<a id="hover" href="">Profil</a>
+				<a id="hover" href="{{path('app_logout')}}">Deconnexion</a>
+			{% else %}
+				<a id="hover" href="{{path('app_login')}}">Connexion</a>
+			{% endif %}
+			<a id="hover" href="">Panier</a>
+			<a id="hover" href="">Contact</a>
+
+		</div>
+
+	</body>
+
+{% endblock %}
