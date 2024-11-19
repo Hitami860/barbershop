@@ -2,9 +2,12 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\Barbers;
 use App\Entity\Categories;
 use App\Entity\Produits;
+use App\Entity\Services;
 use App\Entity\Subcategories;
+use App\Entity\Subservices;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
@@ -16,6 +19,9 @@ class DashboardController extends AbstractDashboardController
     #[Route('/admin', name: 'admin')]
     public function index(): Response
     {
+        if (!$this->isGranted('ROLE_Admin')) {
+            throw $this->createAccessDeniedException("Vous n'avez pas accès à cette page!");
+        }
         {return $this->render('admin/admin.html.twig');}
 
         // Option 1. You can make your dashboard redirect to some common page of your backend
@@ -47,6 +53,9 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Categories', 'fas fa-list', Categories::class);
         yield MenuItem::linkToCrud('Produits', 'fas fa-list', Produits::class);
         yield MenuItem::linkToCrud('Sous-categories', 'fas fa-list', Subcategories::class);
+        yield MenuItem::linkToCrud('Services', 'fas fa-list', Services::class);
+        yield MenuItem::linkToCrud('Subservices', 'fas fa-list', Subservices::class);
+        yield MenuItem::linkToCrud('Barbers', 'fas fa-list', Barbers::class);
         // yield MenuItem::linkToCrud('The Label', 'fas fa-list', EntityClass::class);
     }
 }

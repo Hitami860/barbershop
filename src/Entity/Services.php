@@ -24,6 +24,10 @@ class Services
     #[ORM\OneToMany(targetEntity: Subservices::class, mappedBy: 'services')]
     private Collection $subservices;
 
+    public function __tostring() {
+        return $this->name;
+    }
+
     public function __construct()
     {
         $this->subservices = new ArrayCollection();

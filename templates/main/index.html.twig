@@ -5,181 +5,162 @@
 
 {% block body %}
 	<body>
-		<section class="bg-gray-900 flex flex-row gap-[10%] text-center justify-center">
-			<img src="{{asset('images/logobarber.png')}}" class="h-16" alt="logo barber shop">
-			<div class="flex flex-row items-center gap-1">
-				<img src="{{asset('images/localisation.png')}}" class="h-8" alt="localisation logo"><p class="font-semibold text-white  pt-2 pb-3">40 Rue du Barber, 86000 Poitiers</p>
+
+	
+		<section class="bg-gray-900 flex flex-wrap gap-8 text-center justify-center p-4">
+			<img src="{{ asset('images/logobarber.png') }}" class="h-16" alt="logo barber shop">
+
+			<div class="flex items-center gap-2 text-white">
+				<img src="{{ asset('images/localisation.png') }}" class="h-8" alt="localisation logo">
+				<p class="font-semibold pt-2 pb-3">40 Rue du Barber, 86000 Poitiers</p>
 			</div>
-			<div class="flex flex-row items-center gap-1">
-				<img src="{{asset('images/mail.png')}}" class="h-8" alt="localisation logo"><p class="font-semibold text-white pt-2 pb-3">BarberShop@gmail.com</p>
+
+			<div class="flex items-center gap-2 text-white">
+				<img src="{{ asset('images/mail.png') }}" class="h-8" alt="email logo">
+				<p class="font-semibold pt-2 pb-3">BarberShop@gmail.com</p>
 			</div>
-			<div class="flex flex-row items-center gap-1">
-				<img src="{{asset('images/mobilephone.png')}}" class="h-8" alt="localisation logo"><p class="font-semibold text-white pt-2 pb-3">06 69 85 41 52</p>
+
+			<div class="flex items-center gap-2 text-white">
+				<img src="{{ asset('images/mobilephone.png') }}" class="h-8" alt="phone logo">
+				<p class="font-semibold pt-2 pb-3">06 69 85 41 52</p>
 			</div>
 		</section>
-		<header class="flex flex-col bg-contain bg-no-repeat md:bg-no-repeat bg-cover py-96 gap-[60px] border-2" style="background-image:url('{{asset('images/barberbackground.png')}}')">
 
-			<div class="text-white font-semibold gap-[3%] text-2xl pb flex justify-center">
-
-				<a id="hover" href="{{path('app_main')}}">Accueil</a>
-				<a id="hover" href="{{path('app_produits')}}">Tous nos produits</a>
+		<header class="flex flex-col bg-cover bg-center py-96 gap-16 border-2" style="background-image:url('{{ asset('images/barberbackground.png') }}')">
+			<div class="text-white font-semibold text-2xl pb-8 flex justify-center gap-8">
+				<a id="hover" href="{{ path('app_main') }}" class="hover:text-teal-300 transition duration-200">Accueil</a>
+				<a id="hover" href="{{ path('app_produits') }}" class="hover:text-teal-300 transition duration-200">Tous nos produits</a>
 				{% if app.user %}
 					{% if "ROLE_Admin" in app.user.roles %}
-						<a id="hover" href="">Admin</a>
+						<a id="hover" href="{{ path('admin') }}" class="hover:text-teal-300 transition duration-200">Admin</a>
 					{% endif %}
-					<a id="hover" href="">Profil</a>
-					<a id="hover" href="{{path('app_logout')}}">Deconnexion</a>
+					<a id="hover" href="" class="hover:text-teal-300 transition duration-200">Profil</a>
+					<a id="hover" href="{{ path('app_logout') }}" class="hover:text-teal-300 transition duration-200">Déconnexion</a>
 				{% else %}
-					<a id="hover" href="{{path('app_login')}}">Connexion</a>
+					<a id="hover" href="{{ path('app_login') }}" class="hover:text-teal-300 transition duration-200">Connexion</a>
 				{% endif %}
-				<a id="hover" href="">Panier</a>
-				<a id="hover" href="">Contact</a>
-
-			</div>
-			<div class="border border-solid border-3 border-[#9f7150] bg-black opacity-[70%] w-[50%] py-4 ml-[23%]">
-				<h1 class="text-white text-5xl text-center font-semibold ">"Un nouveau look pour toi "</h1>
+				<a id="hover" href="" class="hover:text-teal-300 transition duration-200">Panier</a>
+				<a id="hover" href="" class="hover:text-teal-300 transition duration-200">Contact</a>
 			</div>
 
+		
+			<div class="border-2 border-[#9f7150] bg-black opacity-70 w-[50%] py-4 mx-auto">
+				<h1 class="text-white text-5xl text-center font-semibold">"Un nouveau look pour toi"</h1>
+			</div>
 		</header>
 
-		<section>
-			<div class="flex flex-row">
-				<div class="flex flex-col container mx-auto">
-					<div class="pt-[7%]">
-						<h2 class="text-[#9f7150] font-semibold">A propos de nous</h2>
-						<p class="text-4xl font-bold">Bienvenue dans notre salon de coiffure<br>Nous changerons votre look !</p>
-					</div>
-
-
-					<div class="pt-[3%] pb-[15%]">
-						<div class="border border-2  bg-gray-200 w-[50%] pt-3 pb-3">
-							<p class="text-2xl px-3 italic font-family: system-ui">"Nous nous engageons à utiliser des produits de soins capillaires<br>de haute qualité afin de garantir que vos cheveux reçoivent le meilleur<br>traitement possible. Des shampoings et revitalisants aux produits coiffants."</p>
-							<p class="text-center pt-[2%]">Hitami, PDG de l'entreprise BogossBarber</p>
-						</div>
-					</div>
+		<section class="container mx-auto py-20">
+			<div class="flex flex-col lg:flex-row items-center gap-16">
+				<div class="flex-1 text-center lg:text-left">
+					<h2 class="text-[#9f7150] font-semibold text-4xl">A propos de nous</h2>
+					<p class="text-4xl font-bold mt-4">Bienvenue dans notre salon de coiffure<br>Nous changerons votre look !</p>
 				</div>
+				<img src="{{ asset('images/barberimage.jpg') }}" class="w-full max-w-[600px] rounded-xl shadow-lg mt-8 lg:mt-0" alt="barber image">
+			</div>
 
-				<img src="{{asset('images/barberimage.jpg')}}" class="h-[700px] absolute pl-[55%] pt-[5%] pb-[5%]" alt="image barber">
+			<div class="pt-8">
+				<div class="border-2 border-[#D9C4A3] bg-gray-200 w-[50%] mx-auto p-4 rounded-lg">
+					<p class="text-2xl italic">"Nous nous engageons à utiliser des produits de soins capillaires<br>de haute qualité afin de garantir que vos cheveux reçoivent le meilleur<br>traitement possible. Des shampoings et revitalisants aux produits coiffants."</p>
+					<p class="text-center pt-4">Hitami, PDG de l'entreprise BogossBarber</p>
+				</div>
 			</div>
 		</section>
 
+		<section class="pb-24 border-t-2">
+			<h2 class="text-3xl text-center text-black font-semibold py-12">Catégories</h2>
 
-		<section class="pb-[5%] border-t-2  ">
-			<h2 class="text-3xl text-center pt-24 font-semibold text-black pb-12">Catégories</h2>
-
-<div class="flex flex-row w-[35%] container mx-auto">
-			{% for category in categories %}
-				<div class="flex flex-wrap container mx-auto gap-2">
-
-					<div class="max-w-sm rounded overflow-hidden shadow-lg hover:border-[#9f7150]  border-2 border-gray-200">
-						<a href="{{path('app_categorie', {id: category.id})}}">
-							<img class="w-full" src="{{asset(category.image)}}" alt="categories images">
+			<div class="flex flex-wrap justify-center gap-8">
+				{% for category in categories %}
+					<div class="max-w-xs rounded overflow-hidden shadow-lg hover:border-[#9f7150] border-2 border-gray-200">
+						<a href="{{ path('app_categorie', {id: category.id}) }}">
+							<img class="w-full h-[250px] object-cover" src="{{ asset(category.image) }}" alt="category image">
 						</a>
 						<div class="px-6 py-4">
-							<div class="font-bold text-xl mb-2 text-orange-300">{{category.nom}}</div>
+							<div class="font-bold text-xl mb-2 text-[#9f7150]">{{ category.nom }}</div>
 						</div>
 					</div>
-				</div>
-			{% endfor %}
-			
-</div>
+				{% endfor %}
+			</div>
 
-<div class="flex flex-wrap container mx-auto gap-2 justify-center pt-8">
-
-					<div class="max-w-sm rounded overflow-hidden shadow-lg hover:border-[#9f7150]  border-2 border-gray-200">
-						<a href="{{path('app_reservation')}}">
-							<img class="w-full" src="{{asset("images/reservation2.webp")}}" alt="categories images">
-						</a>
-						<div class="px-6 py-4">
-							<div class="font-bold text-xl mb-2 text-orange-300">Prendre Rendez-vous</div>
-						</div>
+			<div class="flex flex-wrap justify-center gap-8 pt-8">
+				<div class="max-w-xs rounded overflow-hidden shadow-lg hover:border-[#9f7150] border-2 border-gray-200">
+					<a href="{{ path('app_reservation') }}">
+						<img class="w-full h-[250px] object-cover" src="{{ asset('images/reservation2.webp') }}" alt="reservation image">
+					</a>
+					<div class="px-6 py-4">
+						<div class="font-bold text-xl mb-2 text-[#9f7150]">Prendre Rendez-vous</div>
 					</div>
 				</div>
+			</div>
 		</section>
 
 
-		<section class="flex flex-col bg-cover bg-no-repeat md:bg-no-repeat bg-contain pb-[25%] gap-[60px] border-2 opacity-[90%]" style=" background-image:url('{{asset('images/aviis.jpg')}}')">
-
-			<div class="flex justify-center pt-[5%]">
-				<h2 class="text-5xl text-[#9f7150] font-semibold border border-2 border-[#9f7150] text-center px-2 py-2">Les avis</h2>
-
+		<section class="bg-contain bg-center pb-[20%]" style="background-image:url('{{ asset('images/aviis.jpg') }}')">
+			<div class="flex justify-center pt-8">
+				<h2 class="text-5xl text-[#9f7150] font-semibold border-2 border-[#9f7150] text-center px-2 py-2">Les avis</h2>
 			</div>
-			<h2 class="text-5xl text-white text-center">Ce que la communauté pense de nous</h2>
-
-			<p class="text-2xl text-white italic text-center">" Incroyable salon, le personnel est à l'écoute et les professionnels sont trop fort, je suis devenu bg merci ! "</p>
-			<div class="h-8 flex flex-row justify-center">
-				<img src="{{asset('images/etoile.png')}}" alt="">
-				<img src="{{asset('images/etoile.png')}}" alt="">
-				<img src="{{asset('images/etoile.png')}}" alt="">
-				<img src="{{asset('images/etoile.png')}}" alt="">
-				<img src="{{asset('images/etoile.png')}}" alt="">
+			<h2 class="text-5xl text-white text-center pt-4">Ce que la communauté pense de nous</h2>
+			<p class="text-2xl text-white italic text-center pt-4">"Incroyable salon, le personnel est à l'écoute et les professionnels sont trop forts, je suis devenu bg, merci !"</p>
+			<div class="h-8 flex justify-center pt-4">
+				<img src="{{ asset('images/etoile.png') }}" alt="star">
+				<img src="{{ asset('images/etoile.png') }}" alt="star">
+				<img src="{{ asset('images/etoile.png') }}" alt="star">
+				<img src="{{ asset('images/etoile.png') }}" alt="star">
+				<img src="{{ asset('images/etoile.png') }}" alt="star">
 			</div>
-
-			<h2 class="text-white text-2xl font-semibold text-center">Gaetan Dupont</h2>
-			<div class="pl-[49%] ">
-				<img src="{{asset('images/haircut.webp')}}" class="w-20 rounded-xl border border-white border-2" alt="">
+			<h2 class="text-white text-2xl font-semibold text-center pt-4">Gaetan Dupont</h2>
+			<div class="flex justify-center pt-4">
+				<img src="{{ asset('images/haircut.webp') }}" class="w-20 rounded-xl border-2 border-white" alt="user image">
 			</div>
-
-
 		</section>
 
-		<section class="bg-gray-900 pb-[5%] pt-[2%]">
-
-			<div class="flex flex-row gap-[10%] ">
-
-				<div class="text-2xl text-white pl-[15%]">
-
-					<h2 class="text-3xl pb-[5%] font-semibold">Bogoss Barber</h2>
-					<div class="flex flex-row items-center gap-1">
-						<img src="{{asset('images/positionlogo.png')}}" class="h-8 pt-[3%]" alt="localisation logo"><h1>40 Rue du Barber, 86000 Poitiers</h1>
+	
+		<section class="bg-gray-900 text-white py-12">
+			<div class="flex flex-wrap justify-between gap-12 container mx-auto">
+				<div class="flex-1 text-2xl">
+					<h2 class="text-3xl font-semibold pb-4">Bogoss Barber</h2>
+					<div class="flex items-center gap-2">
+						<img src="{{ asset('images/positionlogo.png') }}" class="h-8" alt="location logo">
+						<h1>40 Rue du Barber, 86000 Poitiers</h1>
 					</div>
-					<div class="flex flex-row items-center gap-1">
-						<img src="{{asset('images/iphone.png')}}" class="h-8 pt-[3%]" alt="localisation logo"><h1>06 69 85 41 52</h1>
+					<div class="flex items-center gap-2 pt-4">
+						<img src="{{ asset('images/iphone.png') }}" class="h-8" alt="phone logo">
+						<h1>06 69 85 41 52</h1>
 					</div>
-					<div class="flex flex-row items-center gap-1">
-						<img src="{{asset('images/mailogo.png')}}" class="h-8 pt-[3%]" alt="localisation logo"><h1>BarberShop@gmail.com</h1>
+					<div class="flex items-center gap-2 pt-4">
+						<img src="{{ asset('images/mailogo.png') }}" class="h-8" alt="email logo">
+						<h1>BarberShop@gmail.com</h1>
 					</div>
-
-
 				</div>
 
-				<div class="text-2xl text-white">
-
-					<h2 class="text-3xl pb-[5%] font-semibold border border-2 boder-white text-center py-2">Nos horaires</h2>
-
-					<p>Lundi - Vendredi : 9h00 - 17h00
-					</p>
+				<div class="flex-1 text-2xl text-center">
+					<h2 class="text-3xl pb-4 font-semibold">Nos horaires</h2>
+					<p>Lundi - Vendredi : 9h00 - 17h00</p>
 					<p>Samedi : 10h00 - 13h00</p>
 					<p class="text-red-500">Dimanche : fermé</p>
-
 				</div>
 
-				<div class="text-2xl text-white">
-
-					<h2 class="text-3xl pb-[5%] font-semibold border border-2 boder-white text-center px-2 py-2">Le Salon</h2>
-					<img src="{{asset('images/salonimage.jpeg')}}" class=" h-[250px] pt-[5%] w-full " alt="image barber">
-
+				<div class="flex-1 text-center">
+					<h2 class="text-3xl pb-4 font-semibold">Le Salon</h2>
+					<img src="{{ asset('images/salonimage.jpeg') }}" class="w-full h-[250px] object-cover" alt="salon image">
 				</div>
-
 			</div>
-
 		</section>
 
-
-		<footer class="bg-[#9f7150] rounded-lg shadow m-4 dark:bg-gray-800">
+	
+		<footer class="bg-[#9f7150] rounded-lg shadow mt-8">
 			<div class="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
 				<span class="text-sm text-white sm:text-center dark:text-gray-400">© 2024
-					<a href="#" class="hover:underline">Bogoss Barber™</a>. All Rights Reserved.
-				</span>
-				<ul class="flex flex-wrap items-center mt-3 text-sm font-medium text-white dark:text-gray-400 sm:mt-0">
+					<a href="#" class="hover:underline">Bogoss Barber™</a>. All Rights Reserved.</span>
+				<ul class="flex items-center gap-6 text-sm font-medium text-white dark:text-gray-400 sm:mt-0">
 					<li>
-						<a href="#" class="hover:underline me-4 md:me-6">About</a>
+						<a href="#" class="hover:underline">About</a>
 					</li>
 					<li>
-						<a href="#" class="hover:underline me-4 md:me-6">Privacy Policy</a>
+						<a href="#" class="hover:underline">Privacy Policy</a>
 					</li>
 					<li>
-						<a href="#" class="hover:underline me-4 md:me-6">Licensing</a>
+						<a href="#" class="hover:underline">Licensing</a>
 					</li>
 					<li>
 						<a href="#" class="hover:underline">Contact</a>
@@ -187,7 +168,6 @@
 				</ul>
 			</div>
 		</footer>
-
 
 	</body>
 {% endblock %}

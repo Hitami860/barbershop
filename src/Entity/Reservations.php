@@ -24,6 +24,9 @@ class Reservations
     #[ORM\JoinColumn(nullable: false)]
     private ?Identifiant $identifiant = null;
 
+    #[ORM\ManyToOne(inversedBy: 'reservations')]
+    private ?Barbers $barbers = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -61,6 +64,18 @@ class Reservations
     public function setIdentifiant(?Identifiant $identifiant): static
     {
         $this->identifiant = $identifiant;
+
+        return $this;
+    }
+
+    public function getBarbers(): ?Barbers
+    {
+        return $this->barbers;
+    }
+
+    public function setBarbers(?Barbers $barbers): static
+    {
+        $this->barbers = $barbers;
 
         return $this;
     }

@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello ReservationController!
+{% block title %}Bogoss Barber - Reservations
 {% endblock %}
 
 {% block body %}
@@ -24,6 +24,33 @@
 			<a id="hover" href="">Contact</a>
 
 		</div>
+
+		<div class="text-2xl font-semibold text-center pt-4">Reservations</div>
+
+		<p class="text-lg font-semibold pb-4 pt-4">Veuillez choisir la prestation que vous souhaitez : </p>
+
+		{% for key, sub in subServices %}
+			<h2 class="text-lg pb-4 pt-4 font-semibold text-xl">{{ key }}</h2>
+
+			{% for subsub in sub %}
+				<div class="pb-4 pt-4 flex -flex row">
+					{{ subsub.name }} |
+					<div class="pl-4 flex flex-row">
+					{{subsub.duration}}min -
+					{{subsub.price}} €
+					
+		<div class="pl-4">
+		<a href="{{ path('app_reservation_detail', { 'id': subsub.id }) }}">
+					<button class="border rounded-lg bg-black text-white px-1 py-1 pl-[5%]">Choisir</button>
+					</a>
+					</div>
+					</div>
+					<br/>
+				</div>
+			{% endfor %}
+
+		{% endfor %}
+
 
 	</body>
 

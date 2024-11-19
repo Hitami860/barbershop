@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}Bogoss Barber - complèter la reservation{% endblock %}
+
+{% block body %}
+
+
+{{subservice.name}} <br>
+{{subservice.duration}}min | {{subservice.price}}€ <br>
+
+{% for barber in barbers %}
+
+{{barber.name}}
+
+{% endfor %}
+{% endblock %}
