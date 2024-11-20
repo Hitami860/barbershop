@@ -16,13 +16,15 @@
 
 	<p class="text-lg font-semibold pt-4">Avec qui ? :
 	</p>
-	<div class="w-[5%] pt-2">
-		{% for barber in barbers %}
+    {% for barber in barbers %}
+	<div class="w-[5%] pt-3">
+		
 
-			<div class="border border-gray-300 rounded-lg text-lg text-center">{{barber.name}}</div>
+			<div class="border border-gray-300 rounded-lg text-lg text-center hover:border-gray-900">{{barber.name}}</div>
 
-		{% endfor %}
+		
 	</div>
+    {% endfor %}
 	<p class="text-xl font-semibold pt-[5%]">
 		2.Choisissez un créneau :
 	</p>
