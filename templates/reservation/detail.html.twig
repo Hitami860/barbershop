@@ -1,17 +1,37 @@
 {% extends 'base.html.twig' %}
 
 
-{% block title %}Bogoss Barber - complèter la reservation{% endblock %}
+{% block title %}Bogoss Barber - complèter la reservation
+{% endblock %}
 
 {% block body %}
 
+	<p class="text-xl font-semibold pb-4">1. La prestation sélectionnée :
+	</p>
+	<div class="font-semibold">{{subservice.name}}</div>
+	<br>
+	{{subservice.duration}}min |
+	<span class="font-semibold">{{subservice.price}}€</span>
+	<br>
 
-{{subservice.name}} <br>
-{{subservice.duration}}min | {{subservice.price}}€ <br>
+	<p class="text-lg font-semibold pt-4">Avec qui ? :
+	</p>
+	<div class="w-[5%] pt-2">
+		{% for barber in barbers %}
 
-{% for barber in barbers %}
+			<div class="border border-gray-300 rounded-lg text-lg text-center">{{barber.name}}</div>
 
-{{barber.name}}
+		{% endfor %}
+	</div>
+	<p class="text-xl font-semibold pt-[5%]">
+		2.Choisissez un créneau :
+	</p>
 
-{% endfor %}
+
+	<div class=" bg-white h-[700px] w-[700px] pt-4" id="calendar"></div>
+
+
+	<script src="/calendar.js"></script>
+	<script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js'></script>
+
 {% endblock %}
