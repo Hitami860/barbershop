@@ -4,50 +4,56 @@
 {% endblock %}
 
 {% block body %}
-	<body>
-		<div class=" px-[3%] container mx-auto pt-4 pb-[13%]">
-			<div class="pl-[20%]">
-				<div class=" h-[500px] bg-no-repeat container mx-auto pl-[15%]" style="background-image:url('{{asset('images/communaute.jpg')}}')"></div>
+	<body class="bg-gray-100">
+
+
+		<section class="relative h-[500px] bg-cover bg-center" style="background-image:url('{{ asset('images/communaute.jpg') }}')">
+			<div class="absolute inset-0 bg-black opacity-50"></div>
+		</section>
+
+
+		<div class="container mx-auto px-6 py-16">
+			<h2 class="text-4xl font-semibold text-center text-black uppercase mb-6">Connexion</h2>
+
+
+			<div class="max-w-lg mx-auto bg-white p-8 rounded-lg shadow-lg">
+
+
+				<form action="{{ path('app_login') }}" method="post">
+
+
+					<div class="mb-6">
+						<label for="_username" class="block text-lg font-medium text-gray-700">Votre email</label>
+						<input type="text" name="_username" value="{{ lastpseudo }}" placeholder="Entrez votre email" class="form-input w-full px-4 py-3 mt-2 border rounded-lg border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#9f7150]" required>
+					</div>
+
+
+					<div class="mb-6">
+						<label for="_password" class="block text-lg font-medium text-gray-700">Votre mot de passe</label>
+						<input type="password" name="_password" placeholder="Entrez votre mot de passe" class="form-input w-full px-4 py-3 mt-2 border rounded-lg border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#9f7150]" required>
+					</div>
+
+
+					<div class="flex justify-center">
+						<button type="submit" class="w-full py-3 text-white bg-[#9f7150] hover:bg-[#8e5e41] rounded-xl font-semibold focus:outline-none transition duration-200">
+							Connexion
+						</button>
+					</div>
+				</form>
+
+
+				<a href="{{ path('app_register') }}" class="block text-center text-black mt-6 text-lg hover:underline">
+					Vous n'avez pas de compte ?
+					<span class="text-red-500">Inscrivez-vous</span>
+				</a>
+
+
+				<a href="{{ path('app_main') }}" class="block text-center mt-2 text-lg text-black hover:underline">
+					Retour à la page d'accueil
+				</a>
 			</div>
-			<h2 class="text-black text-2xl font-semibold uppercase text-center">Connexion</h2>
-			<form action="{{ path('app_login') }}" method="post" class="mt-5 flex flex-col">
-				<input type="text" name="_username" value="{{lastpseudo}}" placeholder="Votre email" class="mb-5">
-				<input type="password" name="_password" placeholder="Votre mot de passe" class="mb-5">
-				<div class="flex justify-center">
-					<button type="submit" class="w-[30%] text-white bg-[#9f7150] rounded-xl">Connexion</button>
-				</div>
-			</form>
-			<a href="{{path('app_register')}}">
-				<p class="text-black pt-7 text-xl text-center">Vous n'avez pas de compte ?
-					<span style="color:red;">Inscrivez-vous</span>
-				</p>
-			</a>
-			<a href="{{path('app_main')}}">
-				<p class="text-black pt-7 text-xl text-center">Retour sur la page d'accueil</p>
-			</a>
 		</div>
 
-		<footer class="bg-[#9f7150] rounded-lg shadow m-4 dark:bg-gray-800">
-			<div class="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
-				<span class="text-sm text-white sm:text-center dark:text-gray-400">© 2023
-					<a href="https://flowbite.com/" class="hover:underline">Flowbite™</a>. All Rights Reserved.
-				</span>
-				<ul class="flex flex-wrap items-center mt-3 text-sm font-medium text-white dark:text-gray-400 sm:mt-0">
-					<li>
-						<a href="#" class="hover:underline me-4 md:me-6">About</a>
-					</li>
-					<li>
-						<a href="#" class="hover:underline me-4 md:me-6">Privacy Policy</a>
-					</li>
-					<li>
-						<a href="#" class="hover:underline me-4 md:me-6">Licensing</a>
-					</li>
-					<li>
-						<a href="#" class="hover:underline">Contact</a>
-					</li>
-				</ul>
-			</div>
-		</footer>
 
 	</body>
 {% endblock %}

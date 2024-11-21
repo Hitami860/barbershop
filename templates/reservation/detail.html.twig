@@ -1,39 +1,68 @@
 {% extends 'base.html.twig' %}
 
-
-{% block title %}Bogoss Barber - complèter la reservation
+{% block title %}Bogoss Barber - Compléter la réservation
 {% endblock %}
 
 {% block body %}
 
-	<p class="text-xl font-semibold pb-4">1. La prestation sélectionnée :
-	</p>
-	<div class="font-semibold">{{subservice.name}}</div>
-	<br>
-	{{subservice.duration}}min |
-	<span class="font-semibold">{{subservice.price}}€</span>
-	<br>
-
-	<p class="text-lg font-semibold pt-4">Avec qui ? :
-	</p>
-    {% for barber in barbers %}
-	<div class="w-[5%] pt-3">
-		
-
-			<div class="border border-gray-300 rounded-lg text-lg text-center hover:border-gray-900">{{barber.name}}</div>
-
-		
+	<div class="text-white font-semibold flex flex-wrap gap-[3%] text-2xl sm:text-xl py-7 justify-center border-b-2 bg-black">
+		<a id="hover" href="{{ path('app_main') }}" class="hover:text-[#0B9C9F] transition px-4">Accueil</a>
+		<a id="hover" href="{{ path('app_produits') }}" class="hover:text-[#0B9C9F] transition px-4">Tous nos produits</a>
+		{% if app.user %}
+			{% if "ROLE_Admin" in app.user.roles %}
+				<a id="hover" href="{{ path('admin') }}" class="hover:text-[#0B9C9F] transition px-4">Admin</a>
+			{% endif %}
+			<a id="hover" href="#" class="hover:text-[#0B9C9F] transition px-4">Profil</a>
+			<a id="hover" href="{{ path('app_logout') }}" class="hover:text-[#0B9C9F] transition px-4">Déconnexion</a>
+		{% else %}
+			<a id="hover" href="{{ path('app_login') }}" class="hover:text-[#0B9C9F] transition px-4">Connexion</a>
+		{% endif %}
+		<a id="hover" href="#" class="hover:text-[#0B9C9F] transition px-4">Panier</a>
+		<a id="hover" href="#" class="hover:text-[#0B9C9F] transition px-4">Contact</a>
 	</div>
-    {% endfor %}
-	<p class="text-xl font-semibold pt-[5%]">
-		2.Choisissez un créneau :
-	</p>
 
 
-	<div class=" bg-white h-[700px] w-[700px] pt-4" id="calendar"></div>
+	<div class="bg-gray-100 py-8 px-4">
+
+
+		<div class="mb-8">
+			<p class="text-xl font-semibold pb-4">1. La prestation sélectionnée :</p>
+			<div class="font-semibold text-2xl text-[#9f7150]">{{ subservice.name }}</div>
+			<p class="text-lg mt-2">
+				<span>{{ subservice.duration }}
+					min |
+				</span>
+				<span class="font-semibold text-[#9f7150]">{{ subservice.price }}
+					€</span>
+			</p>
+		</div>
+
+
+		<div class="mb-8">
+			<p class="text-lg font-semibold pt-4">Avec qui ? :</p>
+			<div class="flex flex-wrap gap-4">
+				{% for barber in barbers %}
+					<div class="w-1/4 sm:w-1/3 md:w-1/4">
+						<div class="border-2 border-[#D5CABC] rounded-lg text-lg text-center py-4 hover:border-black transition duration-300 cursor-pointer">
+							<span class="font-semibold text-[#9f7150]">{{ barber.name }}</span>
+						</div>
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+
+
+		<div class="mb-8">
+			<p class="text-xl font-semibold pt-4">2. Choisissez un créneau :</p>
+			<div class="bg-white border-2 border-[#D5CABC] rounded-lg shadow-lg p-4 w-full max-w-lg mx-auto mt-4">
+				<div class="w-full h-[500px]" id="calendar"></div>
+			</div>
+		</div>
+
+	</div>
 
 
 	<script src="/calendar.js"></script>
-	<script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js'></script>
+	<script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js"></script>
 
 {% endblock %}

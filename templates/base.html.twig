@@ -20,5 +20,8 @@
 	</head>
 	<body>
 		{% block body %}{% endblock %}
+		{% block footer %}
+        {{include('main/footer.html.twig') }}
+        {% endblock %}
 	</body>
 </html>

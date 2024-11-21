@@ -4,62 +4,58 @@
 {% endblock %}
 
 {% block body %}
-	<body class="bg-white">
-
-<div class="container mx-auto" >
-		<div class="pl-[20%]">
-			<div class=" h-[500px] bg-no-repeat container mx-auto pl-[15%]" style="background-image:url('{{asset('images/register.jpg')}}')"></div>
-		</div>
-
-		<h1 class=" text-2xl uppercase text-center text-gray-800 pt-[1%] font-semibold">Inscription</h1>
-
-		<div class="pt-[3%] mb-[15%] pl-[43%] pb-[8%]">
+	<body class="bg-gray-100">
 
 
-			{{ form_errors(registrationForm) }}
+		<section class="relative h-[500px] bg-cover bg-center" style="background-image:url('{{ asset('images/register.jpg') }}')">
+			<div class="absolute inset-0 bg-black opacity-50"></div>
+		</section>
 
-			{{ form_start(registrationForm) }}
-			<div class="mb-5">
 
-				{{ form_widget(registrationForm.pseudo) }}
-			</div>
-			<div class="mb-5">
+		<div class="container mx-auto px-6 py-16">
+			<h1 class="text-4xl font-semibold text-center text-gray-800 uppercase mb-6">Inscription</h1>
 
-				{{ form_widget(registrationForm.email) }}
-			</div>
-			<div class="mb-5">
-				{{ form_widget(registrationForm.plainPassword, {
-            label: 'Password'
+			<div class="max-w-lg mx-auto bg-white p-8 rounded-lg shadow-lg">
+
+
+				{{ form_errors(registrationForm) }}
+
+
+				{{ form_start(registrationForm) }}
+
+				<div class="mb-6">
+					{{ form_label(registrationForm.pseudo) }}
+					{{ form_widget(registrationForm.pseudo, {'attr': {'class': 'form-input w-full px-4 py-3 mt-2 border rounded-lg border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#9f7150]'}}) }}
+				</div>
+
+				<div class="mb-6">
+					{{ form_label(registrationForm.email) }}
+					{{ form_widget(registrationForm.email, {'attr': {'class': 'form-input w-full px-4 py-3 mt-2 border rounded-lg border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#9f7150]'}}) }}
+				</div>
+
+				<div class="mb-6">
+					{{ form_label(registrationForm.plainPassword) }}
+					{{ form_widget(registrationForm.plainPassword, {
+          'attr': {'class': 'form-input w-full px-4 py-3 mt-2 border rounded-lg border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#9f7150]'},
+          'label': 'Mot de passe'
         }) }}
+				</div>
+
+				<div class="mb-6 text-black">
+					{{ form_row(registrationForm.agreeTerms, {
+          'attr': {'class': 'form-checkbox mt-2 text-[#9f7150]'}
+        }) }}
+				</div>
+
+
+				<button type="submit" class="w-full py-3 text-white bg-[#9f7150] hover:bg-[#8e5e41] rounded-xl font-semibold focus:outline-none transition duration-200">
+					S'inscrire
+				</button>
+
+				{{ form_end(registrationForm) }}
 			</div>
-			<div class="mb-5 text-black">
-				{{ form_row(registrationForm.agreeTerms) }}
-			</div>
-			<button style="color:white;" type="submit" class="btn w-[30%] text-white bg-[#9f7150] rounded-xl">S'inscrire</button>
-			{{ form_end(registrationForm) }}
-		</div>
 		</div>
 
-		<footer class="bg-[#9f7150] rounded-lg shadow m-4 dark:bg-gray-800 ">
-			<div class="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
-				<span class="text-sm text-white sm:text-center dark:text-gray-400">© 2023
-					<a href="https://flowbite.com/" class="hover:underline">Flowbite™</a>. All Rights Reserved.
-				</span>
-				<ul class="flex flex-wrap items-center mt-3 text-sm font-medium text-white dark:text-gray-400 sm:mt-0">
-					<li>
-						<a href="#" class="hover:underline me-4 md:me-6">About</a>
-					</li>
-					<li>
-						<a href="#" class="hover:underline me-4 md:me-6">Privacy Policy</a>
-					</li>
-					<li>
-						<a href="#" class="hover:underline me-4 md:me-6">Licensing</a>
-					</li>
-					<li>
-						<a href="#" class="hover:underline">Contact</a>
-					</li>
-				</ul>
-			</div>
-		</footer>
+
 	</body>
 {% endblock %}

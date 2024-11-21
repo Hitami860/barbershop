@@ -1,57 +1,58 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Bogoss Barber - Reservations
-{% endblock %}
+{% block title %}Bogoss Barber - Reservations{% endblock %}
 
 {% block body %}
 
-	<body>
+<body class="bg-gray-100">
 
-		<div class="text-white font-semibold flex flex-wrap gap-[3%] text-2xl sm:text-xl py-7 pb flex justify-center border bg-black pt-7 pb-7">
+    
+    <div class="text-white font-semibold flex flex-wrap gap-[3%] text-2xl sm:text-xl py-7 justify-center border-b-2 bg-black">
+        <a id="hover" href="{{ path('app_main') }}" class="hover:text-[#0B9C9F] transition px-4">Accueil</a>
+        <a id="hover" href="{{ path('app_produits') }}" class="hover:text-[#0B9C9F] transition px-4">Tous nos produits</a>
+        {% if app.user %}
+            {% if "ROLE_Admin" in app.user.roles %}
+                <a id="hover" href="{{ path('admin') }}" class="hover:text-[#0B9C9F] transition px-4">Admin</a>
+            {% endif %}
+            <a id="hover" href="#" class="hover:text-[#0B9C9F] transition px-4">Profil</a>
+            <a id="hover" href="{{ path('app_logout') }}" class="hover:text-[#0B9C9F] transition px-4">Déconnexion</a>
+        {% else %}
+            <a id="hover" href="{{ path('app_login') }}" class="hover:text-[#0B9C9F] transition px-4">Connexion</a>
+        {% endif %}
+        <a id="hover" href="#" class="hover:text-[#0B9C9F] transition px-4">Panier</a>
+        <a id="hover" href="#" class="hover:text-[#0B9C9F] transition px-4">Contact</a>
+    </div>
 
-			<a id="hover" href="{{path('app_main')}}">Accueil</a>
-			<a id="hover" href="{{path('app_produits')}}">Tous nos produits</a>
-			{% if app.user %}
-				{% if "ROLE_Admin" in app.user.roles %}
-					<a id="hover" href="{{path('admin')}}">Admin</a>
-				{% endif %}
-				<a id="hover" href="">Profil</a>
-				<a id="hover" href="{{path('app_logout')}}">Deconnexion</a>
-			{% else %}
-				<a id="hover" href="{{path('app_login')}}">Connexion</a>
-			{% endif %}
-			<a id="hover" href="">Panier</a>
-			<a id="hover" href="">Contact</a>
+    
+    <div class="text-center pt-8">
+        <h1 class="text-4xl font-semibold text-[#9f7150]">Réservations</h1>
+        <p class="text-lg font-semibold mt-4 text-gray-600">Veuillez choisir la prestation que vous souhaitez :</p>
+    </div>
 
-		</div>
+    
+    <div class="container mx-auto py-8 px-4">
+        {% for key, sub in subServices %}
+            <h2 class="text-2xl font-semibold text-[#9f7150] mb-4">{{ key }}</h2>
+            {% for subsub in sub %}
+                <div class="bg-white border-2 border-gray-200 rounded-lg shadow-lg p-4 mb-6">
+                    <div class="flex justify-between items-center">
+                        <div>
+                            <p class="font-semibold text-xl">{{ subsub.name }}</p>
+                            <p class="text-sm text-gray-600">{{ subsub.duration }} min - {{ subsub.price }} €</p>
+                        </div>
+                        <div>
+                            <a href="{{ path('app_reservation_detail', { 'id': subsub.id }) }}">
+                                <button class="bg-black text-white font-semibold px-4 py-2 rounded-lg hover:bg-[#9f7150] transition">
+                                    Choisir
+                                </button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        {% endfor %}
+    </div>
 
-		<div class="text-2xl font-semibold text-center pt-4">Reservations</div>
-
-		<p class="text-lg font-semibold pb-4 pt-4">Veuillez choisir la prestation que vous souhaitez : </p>
-
-		{% for key, sub in subServices %}
-			<h2 class="text-lg pb-4 pt-4 font-semibold text-xl">{{ key }}</h2>
-
-			{% for subsub in sub %}
-				<div class="pb-4 pt-4 flex -flex row">
-					{{ subsub.name }} |
-					<div class="pl-4 flex flex-row">
-					{{subsub.duration}}min -
-					{{subsub.price}} €
-					
-		<div class="pl-4">
-		<a href="{{ path('app_reservation_detail', { 'id': subsub.id }) }}">
-					<button class="border rounded-lg bg-black text-white px-1 py-1 pl-[5%]">Choisir</button>
-					</a>
-					</div>
-					</div>
-					<br/>
-				</div>
-			{% endfor %}
-
-		{% endfor %}
-
-
-	</body>
+</body>
 
 {% endblock %}
