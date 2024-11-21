@@ -6,7 +6,11 @@ document.addEventListener('DOMContentLoaded', function () {
         selectable: true,
         eventOverlap: false,
         allDayText: "Jour / Heure",
-        height: 800,
+        height: 650,
+        slotMinTime: '08:00:00',  // L'heure minimale affichée (ici 8h00)
+      slotMaxTime: '17:30:00',  // L'heure maximale affichée (ici 20h00)
+
+
         slotDuration: '00:30:00',
         slotLabelInterval: '00:30',
         slotLabelFormat: {
