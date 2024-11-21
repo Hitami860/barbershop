@@ -23,6 +23,9 @@ class Hours
     #[ORM\Column(type: Types::TIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $endtime = null;
 
+    #[ORM\ManyToOne(inversedBy: 'hours')]
+    private ?Barbers $barbers = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -48,6 +51,18 @@ class Hours
     public function setEndtime(?\DateTimeInterface $endtime): static
     {
         $this->endtime = $endtime;
+
+        return $this;
+    }
+
+    public function getBarbers(): ?Barbers
+    {
+        return $this->barbers;
+    }
+
+    public function setBarbers(?Barbers $barbers): static
+    {
+        $this->barbers = $barbers;
 
         return $this;
     }

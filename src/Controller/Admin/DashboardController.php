@@ -4,6 +4,7 @@ namespace App\Controller\Admin;
 
 use App\Entity\Barbers;
 use App\Entity\Categories;
+use App\Entity\Hours;
 use App\Entity\Produits;
 use App\Entity\Services;
 use App\Entity\Subcategories;
@@ -56,6 +57,7 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Services', 'fas fa-list', Services::class);
         yield MenuItem::linkToCrud('Subservices', 'fas fa-list', Subservices::class);
         yield MenuItem::linkToCrud('Barbers', 'fas fa-list', Barbers::class);
+        yield MenuItem::linkToCrud('Hours', 'fas fa-list', Hours::class);
         // yield MenuItem::linkToCrud('The Label', 'fas fa-list', EntityClass::class);
     }
 }

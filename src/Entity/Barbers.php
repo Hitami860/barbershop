@@ -31,9 +31,20 @@ class Barbers
     #[ORM\OneToMany(targetEntity: Reservations::class, mappedBy: 'barbers')]
     private Collection $reservations;
 
+    /**
+     * @var Collection<int, Hours>
+     */
+    #[ORM\OneToMany(targetEntity: Hours::class, mappedBy: 'barbers')]
+    private Collection $hours;
+
+    public function __tostring() {
+        return $this->name;
+    }
+
     public function __construct()
     {
         $this->reservations = new ArrayCollection();
+        $this->hours = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -101,6 +112,36 @@ class Barbers
             // set the owning side to null (unless already changed)
             if ($reservation->getBarbers() === $this) {
                 $reservation->setBarbers(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Hours>
+     */
+    public function getHours(): Collection
+    {
+        return $this->hours;
+    }
+
+    public function addHour(Hours $hour): static
+    {
+        if (!$this->hours->contains($hour)) {
+            $this->hours->add($hour);
+            $hour->setBarbers($this);
+        }
+
+        return $this;
+    }
+
+    public function removeHour(Hours $hour): static
+    {
+        if ($this->hours->removeElement($hour)) {
+            // set the owning side to null (unless already changed)
+            if ($hour->getBarbers() === $this) {
+                $hour->setBarbers(null);
             }
         }
 
